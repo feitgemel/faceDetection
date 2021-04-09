@@ -2,7 +2,6 @@
 # https://github.com/opencv/opencv/tree/master/data/haarcascades
 
 import cv2
-# remark 
 
 face_cascade = cv2.CascadeClassifier('C:\Python Code\FacialDetection\FaceBasicDetection\haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier('C:\Python Code\FacialDetection\FaceBasicDetection\haarcascade_eye_tree_eyeglasses.xml')
