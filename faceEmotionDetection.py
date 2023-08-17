@@ -13,11 +13,11 @@ from deepface import DeepFace
 # lets try a diffrent image :
 
 #img = cv2.imread('C:\Python Code\FaceEmotion\youngwoman.jpg')
-img = cv2.imread('C:\Python Code\FaceEmotion\woman.jpg')
+img = cv2.imread('faceDetection/woman.jpg')
 
 #find the face
 # you can find the file in the OpenCV Github page 
-face_cascade = cv2.CascadeClassifier('C:\Python Code\FacialDetection\haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier('faceDetection/haarcascade_frontalface_default.xml')
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
 faces = face_cascade.detectMultiScale(gray,1.1,4)
@@ -26,8 +26,11 @@ for (x,y,w,h) in faces:
     cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),3)
 
 obj = DeepFace.analyze(img_path = img , actions = ['emotion'], enforce_detection=False)
-emotion = obj['dominant_emotion']
-#print(emotion)
+print(obj)
+
+emotion =  obj[0]['dominant_emotion']
+
+print(emotion)
 
 txt = 'Emotion: ' + str(emotion)
 
